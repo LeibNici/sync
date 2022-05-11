@@ -1,0 +1,20 @@
+name: Sync Fork
+
+on:
+  schedule:
+    - cron: '* */3 * * *' # 每3小时触发, 对于一些更新不那么频繁的项目可以设置为每天一次, 低碳一点
+  workflow_dispatch:  # click the button on Github repo!
+
+jobs:
+  update_external_airflow_fork:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: TobKed/github-forks-sync-action@master
+        with:
+          github_token: ${{ secrets.PULL_KEY }}
+          upstream_repository: PizaFork/ForkTest
+          target_repository: LeibNici/ForkTest
+          upstream_branch: main
+          target_branch: main
+          force: true
+          tags: true
