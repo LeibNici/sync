@@ -12,8 +12,8 @@ jobs:
       - uses: TobKed/github-forks-sync-action@master
         with:
           github_token: ${{ secrets.PULL_KEY }}
-          upstream_repository: PizaFork/ForkTest
-          target_repository: LeibNici/ForkTest
+          upstream_repository: changfengoss/pub
+          target_repository: LeibNici/pub
           upstream_branch: main
           target_branch: main
           force: true
